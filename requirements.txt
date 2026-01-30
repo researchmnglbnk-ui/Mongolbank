@@ -1,0 +1,14 @@
+streamlit>=1.30
+altair>=5.2
+pandas>=2.0
+
+openpyxl
+xlsxwriter
+requests
+
+google-cloud-bigquery
+google-auth
+db-dtypes
+pyarrow
+
+plotly
