@@ -52,10 +52,7 @@ credentials = service_account.Credentials.from_service_account_info(
     credentials_info
 )
 
-bq_client = bigquery.Client(
-    credentials=credentials,
-    project=credentials.project_id
-)
+bq_client = bigquery.Client(credentials=credentials)
 
 # ---------------------------------------------------------
 # FUNCTIONS
