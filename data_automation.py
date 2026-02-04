@@ -260,7 +260,7 @@ def main():
         pv_population.to_excel(writer, sheet_name="Population", index=False)
 
         # ===================== LOAD TO BIGQUERY (RAW, NO CHANGE) =====================
-    table_id = "mongol-bank-macro-data.Automation_data.fact_macro"
+    table_id = "astute-azimuth-485909-p6.Automation_data.test_table"
 
     # Wide → Long (ямар ч drop / filter хийхгүй)
     id_col = "ОН"
