@@ -92,7 +92,7 @@ def load_headline_data():
             topic,
             sex,
             age_group
-        FROM `mongol-bank-macro-data.Automation_data.fact_macro`
+        FROM `astute-azimuth-485909-p6.Automation_data.test_table`
         WHERE topic IN ('gdp', 'population')
         ORDER BY year
         """
