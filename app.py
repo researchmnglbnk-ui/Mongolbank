@@ -75,7 +75,7 @@ left_col, right_col = st.columns([1.4, 4.6], gap="large")
 # HEADLINE DATA LOADER (FILTER-INDEPENDENT)
 # =====================================================
 @st.cache_data(ttl=3600)
-def load_headline_data():
+def load_data(topic):
     credentials = service_account.Credentials.from_service_account_info(
         st.secrets["gcp_service_account"]
     )
@@ -83,19 +83,21 @@ def load_headline_data():
         credentials=credentials,
         project=st.secrets["gcp_service_account"]["project_id"]
     )
-
-    query = """
-        SELECT
-            year,
-            indicator_code,
-            value,
-            topic,
-            sex,
-            age_group
-        FROM `astute-azimuth-485909-p6.Automation_data.test_table`
-        WHERE topic IN ('gdp', 'population')
-        ORDER BY year
-        """
+    
+    query = f"""
+    SELECT
+        year,
+        indicator_code,
+        value,
+        sex,
+        age_group,
+        topic
+    FROM `astute-azimuth-485909-p6.Automation_data.test_table`
+    WHERE topic = '{topic}'
+    ORDER BY year
+    """
+    df = client.query(query).to_dataframe()
+    # (бусад код...)
 
     df = client.query(query).to_dataframe()
 
